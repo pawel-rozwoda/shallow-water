@@ -17,7 +17,7 @@ def interpolate_in_space(uh, h):
 
     try:
         result = np.where(h > 0, uh/h, 0.)
-        result = np.where(h < 0 , 0, result)
+#         result = np.where(h < 0 , 0, result)
     except:
         pass
     
