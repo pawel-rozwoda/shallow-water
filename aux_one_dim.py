@@ -5,7 +5,8 @@ from numpy import gradient
 
 #extrapolation to value^{t+0.5}
 def extrapolate_in_time(u_old, u_new):
-    return (3. * u_new - u_old) * .5
+    u_mid = (3. * u_new - u_old) * .5
+    return u_mid
 
 
 def grad(mass, dx=1.):
@@ -16,7 +17,7 @@ def interpolate_in_space(uh, h):
     u = np.zeros((uh.shape[0] + 1))
 
     try:
-        result = np.where(h > 0, uh/h, 0.)
+        result = np.where(h > 0., uh/h, 0.)
 #         result = np.where(h < 0 , 0, result)
     except:
         pass
