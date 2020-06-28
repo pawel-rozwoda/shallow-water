@@ -11,10 +11,11 @@ pip install --pre git+https://github.com/atmos-cloud-sim-uj/MPyDATA.git
 python -m notebook
 ```
 
-### First, we need to choose number of domain data points `nx` and also time step `dt`
+### First, we need to choose number of domain data points `nx` time step `dt` and also space between data points `dx`
 ```python
 nx = 40
 dt = 0.01
+dx = 1.
 ```
 
 
@@ -35,7 +36,7 @@ u_new = np.array(u_initial)
 would setup liquid as following.
 
 
-![image]("figure.png")
+![alt text](figure.png "initial liquid state")
 
 
 ### Additional variables required by shallow water equations 
