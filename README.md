@@ -36,7 +36,7 @@ u_new = np.array(u_initial)
 would setup liquid as following.
 
 
-![alt text](figure.png "initial liquid state")
+![initial](figure.png "initial liquid state")
 
 
 ### Additional variables required by shallow water equations 
