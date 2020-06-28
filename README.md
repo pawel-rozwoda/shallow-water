@@ -1,5 +1,16 @@
 # Shallow water simulation with use of MPyData
 
+### Requirements
+```python
+git clone https://github.com/pawel-rozwoda/shallow-water
+cd shallow-water
+virtualenv --python=python3 venv
+source venv/bin/activate
+pip install -r requirements.txt
+pip install --pre git+https://github.com/atmos-cloud-sim-uj/MPyDATA.git
+python -m notebook
+```
+
 ### First, we need to choose number of domain data points `nx` and also time step `dt`
 ```python
 nx = 40
