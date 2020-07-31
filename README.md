@@ -32,7 +32,7 @@ u_old = np.array(u_initial)
 u_new = np.array(u_initial)
 
 ```
-####above snippet would setup liquid as following.
+above snippet would setup liquid as following.
 
 
 ![initial](figure.png "initial liquid state")
