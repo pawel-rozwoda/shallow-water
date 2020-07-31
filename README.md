@@ -1,25 +1,24 @@
-# Shallow water simulation with use of MPyData
+# Shallow water simulation with use of MPyDATA solver
 
-### Requirements
+### Requirements installation
 ```python
 git clone https://github.com/pawel-rozwoda/shallow-water
 cd shallow-water
 virtualenv --python=python3 venv
 source venv/bin/activate
 pip install -r requirements.txt
-pip install --pre git+https://github.com/atmos-cloud-sim-uj/MPyDATA.git
 python -m notebook
 ```
 
-### First, we need to choose number of domain data points `nx` time step `dt` and also space between data points `dx`
+
+### First we need to choose number of domain data points `nx`, time step `dt` and also space between data points `dx`
 ```python
 nx = 40
 dt = 0.01
 dx = 1.
-```
+``` 
 
-
-### To perform simulation, one need to initialize liquid state h as well as velocity u 
+### To perform simulation one need to initialize liquid state `h` as well as velocity `u` 
 ```python
 initial_m_value = 0.2
 h_initial = np.full(nx, initial_m_value)
@@ -33,7 +32,7 @@ u_old = np.array(u_initial)
 u_new = np.array(u_initial)
 
 ```
-would setup liquid as following.
+####above snippet would setup liquid as following.
 
 
 ![initial](figure.png "initial liquid state")
@@ -47,7 +46,7 @@ rhs_old = np.array(h_old)
 rsh_old = np.zeros(nx)
 ```
 
-### Now transform these variables into form which is understood by solver (explained below)
+### Now transform these variables into form which is understood by MPyDATA solver
 ```python
 from MPyDATA import ScalarField, VectorField, PeriodicBoundaryCondition
 from MPyDATA.options import Options
@@ -67,7 +66,7 @@ advector = VectorField(
 )
 ```
 
-### Solver for sw equation looks as follows
+### Solver for sw equations looks as follows
 ```python
 from mpdata import mpdata_wrapper
 MPDATA = mpdata_wrapper(advector, advectee, (nx,))
